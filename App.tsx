@@ -52,6 +52,13 @@ const App: React.FC = () => {
     localStorage.setItem('lingopop_notebook', JSON.stringify(notebook));
   }, [notebook]);
 
+  // Scroll to top when the result view changes (e.g., new search or deep dive)
+  useLayoutEffect(() => {
+    if (view === AppView.RESULT && mainScrollRef.current) {
+      mainScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentResult, view]);
+
   // Helper to process search (used for main search and deep dives)
   const performSearch = async (text: string) => {
     setIsLoading(true);

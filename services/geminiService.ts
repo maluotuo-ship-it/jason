@@ -3,7 +3,14 @@ import { AnalysisResult, Story } from "../types";
 import { SYSTEM_INSTRUCTION } from "../constants";
 
 // --- Initialization ---
-const getAI = () => new GoogleGenAI({ apiKey: process.env.API_KEY });
+const getAI = () => {
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) {
+    console.warn("API Key is missing. Please ensure process.env.API_KEY is set.");
+    throw new Error("An API Key must be set in process.env.API_KEY to use LingoPop.");
+  }
+  return new GoogleGenAI({ apiKey });
+};
 
 // Global Audio Context & Cache
 let audioContext: AudioContext | null = null;

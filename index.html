@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>LingoPop AI Dictionary</title>
     <script>
+      // Polyfill process for browser environments to prevent ReferenceError
+      if (typeof process === 'undefined') {
+        window.process = { env: {} };
+      }
+      
       // Suppress Tailwind CDN production warning for cleaner console in this runtime environment
       (function() {
         var origWarn = console.warn;
