@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Jason‘s AI Dictionary",
+  "description": "A fun, visual, and intelligent dictionary that turns language learning into an engaging experience with AI-generated images, natural voice, and story-based memory aids.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
